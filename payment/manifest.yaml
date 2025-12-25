@@ -59,7 +59,6 @@ spec:
         envFrom:
         - configMapRef:
             name: payment
-        envFrom:
         - secretRef:
             name: payment
 
