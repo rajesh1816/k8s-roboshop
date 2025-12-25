@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  labels:
+    project: roboshop
+    component: mongodb
+    tier: database
+spec:
+  # modify replicas according to your case
+  replicas: 1
+  selector:
+    matchLabels:
+      project: roboshop
+      component: mongodb
+      tier: database
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        component: mongodb
+        tier: database
+    spec:
+      containers:
+      - name: mongodb
+        image: rajesh947/mongodb:v1
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  labels:
+    project: roboshop
+    component: mongodb
+    tier: database
+spec:
+  selector:   # Selects Pods with the label 'project: roboshop, component: mongodb, tier: frontend'
+    project: roboshop
+    component: mongodb
+    tier: database    
+  ports:
+    - protocol: TCP
+      port: 27017       # The port the Service itself exposes
+      targetPort: 27017 # container port
+  type: ClusterIP
