@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: catalogue
+  namespace: roboshop
   labels:
     project: roboshop
     component: catalogue
@@ -15,6 +16,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalogue
+  namespace: roboshop
   labels:
     project: roboshop
     component: catalogue
@@ -40,6 +42,7 @@ spec:
         envFrom:
         - configMapRef:
             name: catalogue
+namespace: roboshop
 
 ---
 
@@ -47,6 +50,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: catalogue
+  namespace: roboshop
   labels:
     project: roboshop
     component: catalogue
