@@ -99,9 +99,18 @@ spec:
       containers:
       - name: frontend
         image: rajesh947/frontend:v1
-        envFrom:
-        - configMapRef:
-            name: frontend
+        volumeMounts:
+        - name: nginx-conf
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+          readOnly: true
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: frontend
+          items:
+            - key: nginx.conf
+              path: nginx.conf
 
 ---
 
@@ -121,6 +130,6 @@ spec:
     tier: web   
   ports:
     - protocol: TCP
-      port: 8080       # The port the Service itself exposes
-      targetPort: 80 # container port
+      port: 80      # The port the Service itself exposes
+      targetPort: 8080 # container port
   type: LoadBalancer
