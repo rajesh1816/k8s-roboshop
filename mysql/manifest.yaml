@@ -3,6 +3,10 @@ kind: Secret
 metadata:
   namespace: roboshop
   name: mysql
+  labels:
+    project: roboshop
+    component: mysql
+    tier: database
 type: Opaque
 data:
   MYSQL_ROOT_PASSWORD: "Um9ib1Nob3BAMQ=="
