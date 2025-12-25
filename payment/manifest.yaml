@@ -11,7 +11,6 @@ type: Opaque
 data:
   AMQP_USER: "cm9ib3Nob3A="
   AMQP_PASS: "cm9ib3Nob3AxMjM="
-
 ---
 apiVersion: v1
 kind: ConfigMap
