@@ -13,11 +13,6 @@ spec:
   containers:
   - name: mysql-secret
     image: amazon/aws-cli
-    command:
-    - sh
-    - -c
-    - |
-        aws secretsmanager get-secret-value --secret-id roboshop/mysql/root_password --query SecretString --output text | jq -r .MYSQL_ROOT_PASSWORD > /tmp/mysql_root_password.txt
-    volumeMounts:
+    command: ["sleep","10000"]
     - name: mysql-secret
       mountPath: /tmp
