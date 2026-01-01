@@ -16,4 +16,7 @@ spec:
     command: 
     - sleep
     - "10000"
+    volumeMounts:
+        - mountPath: /tmp
+          name: mysql-secret
     
