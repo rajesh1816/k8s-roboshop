@@ -4,4 +4,4 @@ metadata:
   name: mysql-sa
   namespace: roboshop
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::887363634632:role/mysql-secret-read-role
+    eks.amazonaws.com/role-arn: arn:aws:iam::887363634632:role/RoboshopMysqlSecretReadRole
