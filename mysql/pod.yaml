@@ -13,6 +13,7 @@ spec:
   containers:
   - name: mysql-secret
     image: amazon/aws-cli
-    command: ["sleep","10000"]
-    - name: mysql-secret
-      mountPath: /tmp
+    command: 
+    - sleep
+    - "10000"
+    
